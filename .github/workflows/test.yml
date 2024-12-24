@@ -25,5 +25,7 @@ jobs:
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
+            echo "aaa"
             ./dotnet --version
+            echo "bbb"
             sleep 40s
