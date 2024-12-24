@@ -1,8 +1,8 @@
 name: Linux riscv64
 
 on:
-  # push:
-  #   branches: [test/linux-riscv64]
+  push:
+    branches: [test/linux-riscv64]
   workflow_dispatch:
     inputs:
       url:
@@ -21,12 +21,13 @@ jobs:
           install: |
             apt-get update && apt-get install -y curl libicu-dev
           run: |
-            curl -sL ${{ github.event.inputs.url }} -o dotnet.tar.gz
+            curl -sL ${{ github.event.inputs.url || 'https://dlilrw.db.files.1drv.com/y4md2A1sJXbE1KFmCvnb__7FavGjdnslz2a732EmzUPSXzJ4wNbH8i6TCClHmFcTHSXnhsMMYe7mphiaKQoMj9nqgBjEvT2TgtpaGmZ1UiFbGJW8pBjzwI9MMUzKR1ygUesfjQgLhwEkkF_VkccRi9qZn6RE6eMzDHsHhz8Cb6RUxncqX0kwbeu0Ugg9HFy0Y4ly94k9FVBuRrw2LLG014e-OuW6satwfCwY7d8getC2Ac?AVOverride=1' }} -o dotnet.tar.gz
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
             echo "aaa"
             ./dotnet new console -n MyConsoleApp
             ls ./MyConsoleApp
+            ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
             echo "bbb"
             sleep 40s
