@@ -28,7 +28,7 @@ jobs:
             echo "aaa"
             ./dotnet new console -n MyConsoleApp
             #ls ./MyConsoleApp
-            echo 'Console.WriteLine("🎄 Merry Christmas from riscv64 🎅");' >> ./MyConsoleApp/Program.cs
+            echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
             ./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
             #echo "bbb"
