@@ -26,6 +26,7 @@ jobs:
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
             echo "aaa"
-            ./dotnet --version
+            ./dotnet new console -n MyConsoleApp
+            ./dotnet run ./MyConsoleApp
             echo "bbb"
             sleep 40s
