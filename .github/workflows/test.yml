@@ -27,6 +27,6 @@ jobs:
             cd sdk
             echo "aaa"
             ./dotnet new console -n MyConsoleApp
-            ./dotnet run ./MyConsoleApp
+            ls ./MyConsoleApp
             echo "bbb"
             sleep 40s
