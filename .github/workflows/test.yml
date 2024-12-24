@@ -19,7 +19,7 @@ jobs:
           arch: riscv64
           distro: ubuntu22.04
           install: |
-            apt-get update && apt-get install -y curl
+            apt-get update && apt-get install -y curl libicu-dev
           run: |
             curl -sL ${{ github.event.inputs.url }} -o dotnet.tar.gz
             mkdir -p sdk
