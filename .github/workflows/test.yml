@@ -28,7 +28,8 @@ jobs:
             echo "aaa"
             ./dotnet new console -n MyConsoleApp
             #ls ./MyConsoleApp
+            echo 'Console.WriteLine("Hello, World2!");' >> ./MyConsoleApp/Program.cs
             ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
-            #./dotnet exec ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
+            ./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
             #echo "bbb"
             #sleep 40s
