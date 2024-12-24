@@ -29,5 +29,6 @@ jobs:
             ./dotnet new console -n MyConsoleApp
             ls ./MyConsoleApp
             ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
-            echo "bbb"
+            ./dotnet run ./MyConsoleApp/MyConsoleApp.csproj --no-build
+            #echo "bbb"
             sleep 40s
