@@ -23,7 +23,7 @@ jobs:
           run: |
             curl -sL ${{ github.event.inputs.url }} -o dotnet.tar.gz
             mkdir -p sdk
-            tar -xvf dotnet.tar.gz -C sdk
+            tar -xf dotnet.tar.gz -C sdk
             cd sdk
             ./dotnet --version
             sleep 40s
