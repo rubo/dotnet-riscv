@@ -30,6 +30,8 @@ jobs:
             #ls ./MyConsoleApp
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
+            uname -a
+            echo "Running the test app"
             ./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
             #echo "bbb"
             #sleep 40s
