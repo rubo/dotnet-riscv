@@ -1,0 +1,28 @@
+name: Linux riscv64
+
+on:
+  # push:
+  #   branches: [test/linux-riscv64]
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL of the dotnet sdk"
+        required: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: uraimo/run-on-arch-action@v2
+        id: runcmd
+        with:
+          arch: riscv64
+          distro: ubuntu22.04
+
+          run: |
+            curl -sL ${{ github.event.inputs.url }} -o dotnet.tar.gz
+            mkdir -p sdk
+            tar -xvf dotnet.tar.gz -C sdk
+            cd sdk
+            dotnet --version
+            sleep 40s
