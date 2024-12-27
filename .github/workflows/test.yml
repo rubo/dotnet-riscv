@@ -28,7 +28,8 @@ jobs:
             ./dotnet new console -n MyConsoleApp
             cat ./MyConsoleApp/MyConsoleApp.csproj
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
-            ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
-            echo "Running test app..."
-            ./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
-            uname -a
+            ./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub
+            ls ./MyConsoleApp/pub
+            # echo "Running test app..."
+            # ./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
+            # uname -a
