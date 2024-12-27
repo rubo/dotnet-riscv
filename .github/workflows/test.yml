@@ -30,5 +30,5 @@ jobs:
             ./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub
             ls ./MyConsoleApp/pub
             echo "Running test app..."
-            ./MyConsoleApp/MyConsoleApp
+            ./MyConsoleApp/pub/MyConsoleApp
             uname -a
