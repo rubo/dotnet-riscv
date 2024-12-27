@@ -26,7 +26,7 @@ jobs:
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
             ./dotnet new console -n MyConsoleApp
-            #ls ./MyConsoleApp
+            cat ./MyConsoleApp/MyConsoleApp.csproj
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
             echo "Running test app..."
