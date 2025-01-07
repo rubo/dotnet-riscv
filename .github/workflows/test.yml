@@ -34,10 +34,10 @@ jobs:
             tar -xf nupkg.tar -C nupkg
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
-            mv ./nuget.config ./MyConsoleApp/nuget.config
             cd sdk
             echo "Creating a new app"
             ./dotnet new console -n MyConsoleApp
+            mv ../nuget.config ./MyConsoleApp/nuget.config
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             echo "Building the app"
             ./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub --sc true -p:PublishSingleFile=true
