@@ -5,8 +5,11 @@ on:
     branches: [test/linux-riscv64]
   workflow_dispatch:
     inputs:
-      url:
+      sdk:
         description: "URL of the dotnet sdk"
+        required: true
+      nupkg:
+        description: "URL of the dotnet nupkg"
         required: true
 
 jobs:
@@ -21,7 +24,11 @@ jobs:
           install: |
             apt-get update && apt-get install -y curl libicu-dev
           run: |
-            curl -sL ${{ github.event.inputs.url || 'https://dlilrw.db.files.1drv.com/y4mdKCtNZrh509o2rAOm5v_E6JQ3c50lDosodJ1HrbiqNN24dnL2FEL2JkmBRStMHuw0J8ztXx3JXjOzZYuk8ebf-mEHJGeb54PF1hD3W_hYxzgGKWolZZ1-QGQgn-Pb52T5QZaqHwkR0nYtM0gtQo1I83LzNE4Kw_yCxUEHETJsUDaEWdzlgBqPC3HEQrkP_qYzOcRnpMvvjuI0o98_5C6MA' }} -o dotnet.tar.gz
+            ls .
+            curl -sL ${{ github.event.inputs.sdk || 'https://dlilrw.db.files.1drv.com/y4mdKCtNZrh509o2rAOm5v_E6JQ3c50lDosodJ1HrbiqNN24dnL2FEL2JkmBRStMHuw0J8ztXx3JXjOzZYuk8ebf-mEHJGeb54PF1hD3W_hYxzgGKWolZZ1-QGQgn-Pb52T5QZaqHwkR0nYtM0gtQo1I83LzNE4Kw_yCxUEHETJsUDaEWdzlgBqPC3HEQrkP_qYzOcRnpMvvjuI0o98_5C6MA' }} -o dotnet.tar.gz
+            curl -sL ${{ github.event.inputs.nupkg || 'https://dlilrw.db.files.1drv.com/y4mdKCtNZrh509o2rAOm5v_E6JQ3c50lDosodJ1HrbiqNN24dnL2FEL2JkmBRStMHuw0J8ztXx3JXjOzZYuk8ebf-mEHJGeb54PF1hD3W_hYxzgGKWolZZ1-QGQgn-Pb52T5QZaqHwkR0nYtM0gtQo1I83LzNE4Kw_yCxUEHETJsUDaEWdzlgBqPC3HEQrkP_qYzOcRnpMvvjuI0o98_5C6MA' }} -o nupkg.tar
+            mkdir -p nupkg
+            tar -xf nupkg.tar -C nupkg
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
@@ -29,6 +36,8 @@ jobs:
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             ./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub --sc true -p:PublishSingleFile=true
             ls ./MyConsoleApp/pub
+            #./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
             echo "Running test app..."
             ./MyConsoleApp/pub/MyConsoleApp
+            #./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
             uname -a
