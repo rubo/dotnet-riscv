@@ -26,7 +26,7 @@ jobs:
             apt-get update && apt-get install -y curl git libicu-dev software-properties-common
             add-apt-repository ppa:ubuntu-toolchain-r/test
             apt-get update && apt-get install --only-upgrade -y libstdc++6 --no-install-recommends
-            sudo apt-get upgrade -y
+            apt-get upgrade -y
           run: |
             echo "Downloading SDK"
             curl -sL ${{ github.event.inputs.sdk || 'https://b7ltda.db.files.1drv.com/y4mNIvGEKxembSln3JBRlfA2zD4BD8YzTlar_3JqwNK4M2zW5YKCdSvThvturpe18vlSO2aWEMmWlmIdvtMuDKZWX2xnalb7RcyUjsUDFUOhSbPJTgm6PIDZITzxiwPawunLWI-YgupBmGXLhEZ8UG0c7x78Eh7cG79wftHHbbwJJ3WAMLhl9t0qv1DRrAbkrpws0aXv2LHwc2UVB5ynGZ9Laasq9OOmOaPszi-L5rT4ow?AVOverride=1' }} -o dotnet.tar.gz
