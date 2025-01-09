@@ -18,6 +18,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v4
+      - run: ldd --version
       - uses: uraimo/run-on-arch-action@v2
         id: runcmd
         with:
