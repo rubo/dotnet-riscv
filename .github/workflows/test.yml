@@ -23,10 +23,10 @@ jobs:
           arch: riscv64
           distro: ubuntu22.04
           install: |
-            apt-get update && apt-get install -y curl git libicu-dev software-properties-common
-            add-apt-repository ppa:ubuntu-toolchain-r/test
-            apt-get update && apt-get install --only-upgrade -y libstdc++6 --no-install-recommends
-            apt-get upgrade -y
+            apt-get update && apt-get install -y curl git libicu-dev
+            #add-apt-repository ppa:ubuntu-toolchain-r/test
+            #apt-get update && apt-get install --only-upgrade -y libstdc++6 --no-install-recommends
+            #apt-get upgrade -y
           run: |
             echo "Downloading SDK"
             curl -sL ${{ github.event.inputs.sdk || 'https://b7lwda.db.files.1drv.com/y4mTLZyxQ2FFOO3ju4GQ8st1zZflD96c3E8kMAVvhUXP4W6_rx4uhe3RqxeQCHCFECiwsnLW--ED5SrhSFbF0C_mYjWwtFgioPPJsqITFyy1qYtWHExB_9PJsPCvrJ6Uz8AIAA3i_GtqnaHTDIMXGTdfoBU3aPbnRLsy2obLGRjAqIDm7yG8fOvWpC9nqvt1g5SIRRCj96kN-uH-CZ-TtpkIEnF3nHq35Z2tWDKU9jbHC4?AVOverride=1' }} -o dotnet.tar.gz
@@ -37,8 +37,6 @@ jobs:
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
-            ldd --version
-            ldd ./dotnet
             echo "Creating a new app"
             ./dotnet new console -n MyConsoleApp
             #mv ../nuget.config ./MyConsoleApp/nuget.config
