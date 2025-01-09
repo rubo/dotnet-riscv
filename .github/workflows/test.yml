@@ -21,7 +21,7 @@ jobs:
       - uses: uraimo/run-on-arch-action@v2
         with:
           arch: riscv64
-          distro: ubuntu24.04
+          distro: ubuntu22.04
           install: |
             apt-get update && apt-get install -y curl git libicu-dev
           run: |
