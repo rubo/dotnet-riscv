@@ -29,7 +29,7 @@ jobs:
             apt-get upgrade -y
           run: |
             echo "Downloading SDK"
-            curl -sL ${{ github.event.inputs.sdk || 'https://b7ltda.db.files.1drv.com/y4mNIvGEKxembSln3JBRlfA2zD4BD8YzTlar_3JqwNK4M2zW5YKCdSvThvturpe18vlSO2aWEMmWlmIdvtMuDKZWX2xnalb7RcyUjsUDFUOhSbPJTgm6PIDZITzxiwPawunLWI-YgupBmGXLhEZ8UG0c7x78Eh7cG79wftHHbbwJJ3WAMLhl9t0qv1DRrAbkrpws0aXv2LHwc2UVB5ynGZ9Laasq9OOmOaPszi-L5rT4ow?AVOverride=1' }} -o dotnet.tar.gz
+            curl -sL ${{ github.event.inputs.sdk || 'https://b7ltda.db.files.1drv.com/y4mK7B-907oSBTGORh0IW03klzSXt2MqDCAFqz_rZu-_uKHYmeVsj_yhtbJdth5GORtJ8HdUBQUlnP8_ooR4ln_OLmCPZ4Ctr8XOCRfOv1WK5SPwJnLbgDSlXYmQvLbeR4eR-4iGVCAuw9uaSg_mdGwruCp42AGYj-kOCmROXgFzkKAgsFI0dYxGwqnHf_Y-WIB8smdYJd5z7ALpdE3ToTiV2pTkGstENbzamium-qc2JI?AVOverride=1' }} -o dotnet.tar.gz
             #echo "Downloading NuGet packages"
             #curl -sL ${{ github.event.inputs.nupkg || 'https://cllqda.db.files.1drv.com/y4mqSe4TK8P-7oojLaiJFBECMThnmwaD94nFltbbD5H6s5TSKeE5MpxnsGwtHcTlG3yRv3vlXCqGJ4j_2RvRWFRWBNd0hbB74w9ljS3bGNkuVJaOY6mA1anezvbYIGskJ9PlW_xsTs0ZGzkPgWC1SSa6jk0_q5LAHUdCjMmo-nFNZ4hkiAp4hdFusGsqnKptzTxOf8lY7Fk38wM-BdsfilODTjw1t7dzn2graFDRFA4FGg?AVOverride=1' }} -o nupkg.tar
             #mkdir -p nupkg
