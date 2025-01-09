@@ -2,7 +2,7 @@ name: Linux riscv64
 
 on:
   push:
-    branches: [test/linux-riscv64]
+    branches: [test/riscv64]
   workflow_dispatch:
     inputs:
       sdk:
