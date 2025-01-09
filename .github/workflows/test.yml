@@ -22,7 +22,7 @@ jobs:
         id: runcmd
         with:
           arch: riscv64
-          distro: ubuntu22.04
+          distro: ubuntu24.04
           install: |
             apt-get update && apt-get install -y curl git libicu-dev
           run: |
