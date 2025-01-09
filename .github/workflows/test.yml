@@ -24,25 +24,25 @@ jobs:
           arch: riscv64
           distro: ubuntu22.04
           install: |
-            apt-get update && apt-get install -y curl libicu-dev
+            apt-get update && apt-get install -y curl git libicu-dev
           run: |
             echo "Downloading SDK"
-            curl -sL ${{ github.event.inputs.sdk || 'https://dlilrw.db.files.1drv.com/y4mYSKOTsfhNGO7yOmV3x8dqOhoJ9v6W-cvOqlJzoJDr1JHPqiQ-5FRDW0e_ZNR2AZ0Kk0sCrwJLZyOJPmR9-_WFpCR2RL_t_MOPOR7PLFOoN62rxMp5nSdtzgz08xDjXmXa6LOGVgY12EAUyoMISWjZVYaMCUZx7HlISf758zypk4D5GDJw-jl8O6WqNIhD8UOFuxWRLPhw6Eirf9hFxTI4T56GtkQ_aUc4Lfkd8EyStE?AVOverride=1' }} -o dotnet.tar.gz
-            echo "Downloading NuGet packages"
-            curl -sL ${{ github.event.inputs.nupkg || 'https://cllqda.db.files.1drv.com/y4mqSe4TK8P-7oojLaiJFBECMThnmwaD94nFltbbD5H6s5TSKeE5MpxnsGwtHcTlG3yRv3vlXCqGJ4j_2RvRWFRWBNd0hbB74w9ljS3bGNkuVJaOY6mA1anezvbYIGskJ9PlW_xsTs0ZGzkPgWC1SSa6jk0_q5LAHUdCjMmo-nFNZ4hkiAp4hdFusGsqnKptzTxOf8lY7Fk38wM-BdsfilODTjw1t7dzn2graFDRFA4FGg?AVOverride=1' }} -o nupkg.tar
-            mkdir -p nupkg
-            tar -xf nupkg.tar -C nupkg
+            curl -sL ${{ github.event.inputs.sdk || 'https://b7luda.db.files.1drv.com/y4mvqw2rfsO3rXPhfBtI8xcZVdG6XI55e9fL_6Y-v1L0LD4Asm25m0DaSJ-fea1vGTMIHVYWGyHLeHoJkQcLkmY-XmUCY2YNAg0Od8xHRq6ExFMTHvGyDKbiyDzaZ7xGFskI133WJWP0_OF8Tuve6Oadb5n3g3eIqJKk0u_FwUc1IFiiRYuWeOIA3BSGFKlPL1onL0XIA6cgHKcUzAS-kyufX2C_GC5-edPIrR4rU8kPN4?AVOverride=1' }} -o dotnet.tar.gz
+            #echo "Downloading NuGet packages"
+            #curl -sL ${{ github.event.inputs.nupkg || 'https://cllqda.db.files.1drv.com/y4mqSe4TK8P-7oojLaiJFBECMThnmwaD94nFltbbD5H6s5TSKeE5MpxnsGwtHcTlG3yRv3vlXCqGJ4j_2RvRWFRWBNd0hbB74w9ljS3bGNkuVJaOY6mA1anezvbYIGskJ9PlW_xsTs0ZGzkPgWC1SSa6jk0_q5LAHUdCjMmo-nFNZ4hkiAp4hdFusGsqnKptzTxOf8lY7Fk38wM-BdsfilODTjw1t7dzn2graFDRFA4FGg?AVOverride=1' }} -o nupkg.tar
+            #mkdir -p nupkg
+            #tar -xf nupkg.tar -C nupkg
             mkdir -p sdk
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
             echo "Creating a new app"
             ./dotnet new console -n MyConsoleApp
-            mv ../nuget.config ./MyConsoleApp/nuget.config
+            #mv ../nuget.config ./MyConsoleApp/nuget.config
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
             echo "Building the app"
-            ./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub --sc true -p:PublishSingleFile=true
+            #./dotnet publish ./MyConsoleApp/MyConsoleApp.csproj -c release -r linux-riscv64 -o ./MyConsoleApp/pub --sc true -p:PublishSingleFile=true
             ls ./MyConsoleApp/pub
-            #./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
+            ./dotnet build ./MyConsoleApp/MyConsoleApp.csproj
             echo "Running test app..."
             ./MyConsoleApp/pub/MyConsoleApp
             #./dotnet ./MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.dll
