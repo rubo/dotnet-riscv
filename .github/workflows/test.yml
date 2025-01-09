@@ -7,10 +7,10 @@ on:
     inputs:
       sdk:
         description: "URL of the dotnet sdk"
-        required: true
+        required: false
       nupkg:
         description: "URL of the dotnet nupkg"
-        required: true
+        required: false
 
 jobs:
   run:
