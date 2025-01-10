@@ -38,6 +38,7 @@ jobs:
             tar -xf dotnet.tar.gz -C sdk
             cd sdk
             echo "Creating a new app"
+            ./dotnet --version
             ./dotnet new console -n MyConsoleApp
             #mv ../nuget.config ./MyConsoleApp/nuget.config
             echo 'Console.WriteLine("🎄 Merry Christmas from .NET on riscv64 🎅");' >> ./MyConsoleApp/Program.cs
